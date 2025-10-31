@@ -1,0 +1,75 @@
+﻿@model MyMvcApp.Models.User
+@{
+    ViewData["Title"] = "Sign Up";
+}
+
+<h1 class="user-name" style="text-align:center;">Sign Up</h1>
+<div class="auth-main">
+    <div class="auth-wrapper v1">
+        <div class="card my-1">
+            <div class="card-body">
+                <form asp-action="SignUp" asp-controller="Account" method="post">
+                    @Html.AntiForgeryToken()
+
+                    <div asp-validation-summary="All" class="text-danger"></div>
+
+                    <div class="row g-3">
+                        <div class="form-group col-md-4">
+                            <label asp-for="FullName" class="form-label"></label>
+                            <input asp-for="FullName" class="form-control" placeholder="Enter Your Full Name" required />
+                            <span asp-validation-for="FullName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label asp-for="Email" class="form-label"></label>
+                            <input asp-for="Email" class="form-control" placeholder="Enter Your Email" required />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label asp-for="UserName" class="form-label"></label>
+                            <input asp-for="UserName" class="form-control" placeholder="Enter User Name" required />
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="form-group col-md-4 mt-4">
+                            <label asp-for="Address" class="form-label"></label>
+                            <input asp-for="Address" class="form-control" placeholder="Enter Your Address" required />
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group col-md-4 mt-4">
+                            <label class="form-label">Password</label>
+                            <div class="password-wrapper">
+                                <input asp-for="PasswordHash" class="form-control" type="password" placeholder="Enter Your Password" required />
+                                <i class="fa-solid fa-eye toggle-eye" id="togglePassword" title="Show Password"></i>
+                            </div>
+                            <span asp-validation-for="PasswordHash" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group col-md-4 mt-4">
+                            <label class="form-label">Confirm Password</label>
+                            <div class="password-wrapper">
+                                <input type="password" name="passwordConfirm" id="confirmPassword" class="form-control" placeholder="Enter Your Password Again" required />
+                                <i class="fa-solid fa-eye toggle-eye" id="toggleConfirm" title="Show Password"></i>
+                            </div>
+                            <div class="error-message text-danger" id="errorMessage" style="display:none;">Passwords do not match</div>
+                        </div>
+
+                        <div class="d-grid mt-4 col-md-5" style="margin:auto">
+                            <button type="submit" class="btn btn-primary">Create Account</button>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="text-center mt-3">
+                    <a asp-action="Login" asp-controller="Account">Already have an account? Login here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="~/js/my_js.js"></script>

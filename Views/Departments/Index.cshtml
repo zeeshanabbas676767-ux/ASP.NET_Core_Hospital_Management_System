@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MyMvcApp.Models.Department>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<h2 class="text-center user-name">Department</h2>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<div class="container-fluid" style="overflow:auto;">
+<table class="table">
+    <thead>
+        <tr>
+                <th class="user-name">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+                <th class="user-name">
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+                <th class="user-name">
+                @Html.DisplayNameFor(model => model.Hospital)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                    <td class="user-name">
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+                    <td class="user-name">
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+                    <td class="user-name">
+                @Html.DisplayFor(modelItem => item.Hospital.Name)
+            </td>
+                <td class="gap-2" style="display:flex">
+                    <a asp-action="Edit" asp-route-id="@item.DepartmentId" class="btn btn-sm btn-success"><i class="fa fa-edit"></i></a>
+                    <a asp-action="Details" asp-route-id="@item.DepartmentId" class="btn btn-sm btn-secondary"><i class="fa fa-file-alt"></i></a>
+                    <a asp-action="Delete" asp-route-id="@item.DepartmentId" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>

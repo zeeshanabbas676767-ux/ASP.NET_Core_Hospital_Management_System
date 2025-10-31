@@ -1,0 +1,55 @@
+﻿@model IEnumerable<MyMvcApp.Models.Payment>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2 class="text-center user-name">Payment</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<div class="container-fluid" style="overflow:auto;">
+<table class="table">
+    <thead>
+        <tr>
+                <th class="user-name">
+                @Html.DisplayNameFor(model => model.Invoice)
+            </th>
+                <th class="user-name">
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+                <th class="user-name">
+                @Html.DisplayNameFor(model => model.PaidAt)
+            </th>
+                <th class="user-name">
+                @Html.DisplayNameFor(model => model.Method)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                    <td class="user-name">
+                @Html.DisplayFor(modelItem => item.Invoice.InvoiceId)
+            </td>
+                    <td class="user-name">
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+                    <td class="user-name">
+                @Html.DisplayFor(modelItem => item.PaidAt)
+            </td>
+                    <td class="user-name">
+                @Html.DisplayFor(modelItem => item.Method)
+            </td>
+                    <td class="gap-2" style="display:flex">
+                    <a asp-action="Edit" asp-route-id="@item.PaymentId" class="btn btn-sm btn-success"><i class="fa fa-edit"></i></a>
+                    <a asp-action="Details" asp-route-id="@item.PaymentId" class="btn btn-sm btn-secondary"><i class="fa fa-file-alt"></i></a>
+                    <a asp-action="Delete" asp-route-id="@item.PaymentId" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>

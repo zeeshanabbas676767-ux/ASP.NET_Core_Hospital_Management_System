@@ -1,0 +1,51 @@
+﻿@model MyMvcApp.Models.Payment
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2 class="text-center user-name">Payment</h2>
+<hr />
+<div class="row">
+    <div class="col-md-9">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PaymentId" />
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="InvoiceId" class="control-label user-name"></label>
+                        <select asp-for="InvoiceId" class="form-control" asp-items="ViewBag.InvoiceId"></select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Amount" class="control-label user-name"></label>
+                        <input asp-for="Amount" class="form-control" />
+                        <span asp-validation-for="Amount" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="PaidAt" class="control-label user-name"></label>
+                        <input asp-for="PaidAt" class="form-control" />
+                        <span asp-validation-for="PaidAt" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Method" class="control-label user-name"></label>
+                        <input asp-for="Method" class="form-control" />
+                        <span asp-validation-for="Method" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <button asp-action="Index" class="btn btn-secondary">Back</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
