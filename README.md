@@ -39,7 +39,7 @@ It includes user authentication, profile management, and an admin panel to manag
 
 ---
 
-## 🗂️ Project Structure (High Level)
+## 🗂️ Project Structure (High Level)    Note: All Screenshots are in Screenshots folder in project root. 
 ### 🔹 Login Page
 ![Login Page](Login.png)
 ### 🔹 Sign Up
